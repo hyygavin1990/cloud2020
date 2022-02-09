@@ -25,7 +25,17 @@ public class PaymentService {
                 + "O(∩_∩)O哈哈~";
     }
 
-
+    public String paymentInfoTimeOut(Integer id) {
+        int second = 3;
+        long start = System.currentTimeMillis();
+        try {
+            TimeUnit.SECONDS.sleep(second);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return "线程池:  " + Thread.currentThread().getName() + " paymentInfoTimeOut,id:  " + id + "\t"
+                + "O(∩_∩)O哈哈~" + "  耗时(秒): " + second;
+    }
     /**
      * 超时访问，设置自身调用超时的峰值，峰值内正常运行，超过了峰值需要服务降级 自动调用fallbackMethod 指定的方法
      * 超时异常或者运行异常 都会进行服务降级
@@ -33,7 +43,7 @@ public class PaymentService {
      * @param id
      * @return
      */
-    @HystrixCommand(fallbackMethod = "paymentInfoTimeOutHandler", commandProperties = {
+    /*@HystrixCommand(fallbackMethod = "paymentInfoTimeOutHandler", commandProperties = {
             @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "5000")
     })
     public String paymentInfoTimeOut(Integer id) {
@@ -49,7 +59,7 @@ public class PaymentService {
         System.out.println(end - start);
         return "线程池:  " + Thread.currentThread().getName() + " paymentInfoTimeOut,id:  " + id + "\t"
                 + "O(∩_∩)O哈哈~" + "  耗时(秒): " + second;
-    }
+    }*/
 
 
     /**
@@ -77,8 +87,8 @@ public class PaymentService {
      * @param id
      * @return
      */
-    @HystrixCommand(fallbackMethod = "paymentCircuitBreakerFallback", commandProperties = {
-            @HystrixProperty(name = "circuitBreaker.enabled", value = "true"),/* 是否开启断路器*/
+    /*@HystrixCommand(fallbackMethod = "paymentCircuitBreakerFallback", commandProperties = {
+            @HystrixProperty(name = "circuitBreaker.enabled", value = "true"),*//* 是否开启断路器*//*
             @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "10"),// 请求次数
             @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "10000"), // 时间窗口期
             @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "60"),// 失败率达到多少后跳闸
@@ -103,15 +113,15 @@ public class PaymentService {
     }
 
 
-    /**
+    *//**
      * paymentCircuitBreaker 方法的 fallback，<br/>
      * 当断路器开启时，主逻辑熔断降级，该 fallback 方法就会替换原 paymentCircuitBreaker 方法，处理请求
      *
      * @param id
      * @return
-     */
+     *//*
     public String paymentCircuitBreakerFallback(Integer id) {
         return Thread.currentThread().getName() + "\t" + "id 不能负数或超时或自身错误，请稍后再试，/(ㄒoㄒ)/~~   id: " + id;
-    }
+    }*/
 
 }

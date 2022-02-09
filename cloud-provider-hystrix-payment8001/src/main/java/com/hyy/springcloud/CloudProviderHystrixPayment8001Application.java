@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 @EnableEurekaClient
 //注解开启断路器功能
-@EnableCircuitBreaker
+//@EnableCircuitBreaker
 public class CloudProviderHystrixPayment8001Application {
     public static void main(String[] args) {
         SpringApplication.run(CloudProviderHystrixPayment8001Application.class, args);
@@ -34,7 +34,7 @@ public class CloudProviderHystrixPayment8001Application {
      *
      * @return ServletRegistrationBean
      */
-    @Bean
+    /*@Bean
     public ServletRegistrationBean getServlet() {
         HystrixMetricsStreamServlet streamServlet = new HystrixMetricsStreamServlet();
         ServletRegistrationBean registrationBean = new ServletRegistrationBean(streamServlet);
@@ -46,7 +46,7 @@ public class CloudProviderHystrixPayment8001Application {
         // 设置名称
         registrationBean.setName("HystrixMetricsStreamServlet");
         return registrationBean;
-    }
+    }*/
 
 
 }
