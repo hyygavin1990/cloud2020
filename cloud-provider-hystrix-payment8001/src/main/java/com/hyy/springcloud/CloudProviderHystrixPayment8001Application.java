@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 @EnableEurekaClient
 //注解开启断路器功能
-//@EnableCircuitBreaker
+@EnableCircuitBreaker
 public class CloudProviderHystrixPayment8001Application {
     public static void main(String[] args) {
         SpringApplication.run(CloudProviderHystrixPayment8001Application.class, args);

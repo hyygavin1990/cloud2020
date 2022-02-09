@@ -10,7 +10,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  */
 @SpringBootApplication
 @EnableFeignClients // 启动 feign
-//@EnableHystrix // 启动 hystrix
+@EnableHystrix // 启动 hystrix
 public class CloudConsumerFeignHystrixOrder80Application {
 
     public static void main(String[] args) {
