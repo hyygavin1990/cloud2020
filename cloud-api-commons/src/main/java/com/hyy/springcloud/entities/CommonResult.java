@@ -3,9 +3,7 @@ package com.hyy.springcloud.entities;
 import lombok.Data;
 
 /**
- * @author lixiaolong
- * @date 2020/12/18 20:17
- * @description 通用的返回对象
+ * 通用的返回对象
  */
 @Data
 public class CommonResult<T> {
