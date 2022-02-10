@@ -117,8 +117,8 @@ public class PaymentService {
      * @param id
      * @return
      */
-    /*@HystrixCommand(fallbackMethod = "paymentCircuitBreakerFallback", commandProperties = {
-            @HystrixProperty(name = "circuitBreaker.enabled", value = "true"),*//* 是否开启断路器*//*
+    @HystrixCommand(fallbackMethod = "paymentCircuitBreakerFallback", commandProperties = {
+            @HystrixProperty(name = "circuitBreaker.enabled", value = "true"),/* 是否开启断路器*/
             @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "10"),// 请求次数
             @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "10000"), // 时间窗口期
             @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "60"),// 失败率达到多少后跳闸
@@ -143,15 +143,15 @@ public class PaymentService {
     }
 
 
-    *//**
+    /**
      * paymentCircuitBreaker 方法的 fallback，<br/>
      * 当断路器开启时，主逻辑熔断降级，该 fallback 方法就会替换原 paymentCircuitBreaker 方法，处理请求
      *
      * @param id
      * @return
-     *//*
+     */
     public String paymentCircuitBreakerFallback(Integer id) {
         return Thread.currentThread().getName() + "\t" + "id 不能负数或超时或自身错误，请稍后再试，/(ㄒoㄒ)/~~   id: " + id;
-    }*/
+    }
 
 }

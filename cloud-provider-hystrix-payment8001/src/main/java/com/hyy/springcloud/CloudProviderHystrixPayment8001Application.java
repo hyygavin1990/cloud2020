@@ -34,7 +34,7 @@ public class CloudProviderHystrixPayment8001Application {
      *
      * @return ServletRegistrationBean
      */
-    /*@Bean
+    @Bean
     public ServletRegistrationBean getServlet() {
         HystrixMetricsStreamServlet streamServlet = new HystrixMetricsStreamServlet();
         ServletRegistrationBean registrationBean = new ServletRegistrationBean(streamServlet);
@@ -46,7 +46,7 @@ public class CloudProviderHystrixPayment8001Application {
         // 设置名称
         registrationBean.setName("HystrixMetricsStreamServlet");
         return registrationBean;
-    }*/
+    }
 
 
 }
